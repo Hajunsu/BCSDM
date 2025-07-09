@@ -25,6 +25,11 @@ Due to file size constraints, these resources are provided separately from the G
 
 After downloading, unzip the file and place the contents in the root directory of the project:
 
+For linux,
+```shell
+wget -O BCSDM_resources.zip "https://www.dropbox.com/scl/fi/uubobpjwmvmkeq33rk858/BCSDM_resources.zip?rlkey=d6xehctpktpzzpebk01rt42hz&e=1&st=1z3559o6&dl=1"
+unzip BCSDM_resources.zip
+```
 
 ## Run
 
