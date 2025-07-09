@@ -1,0 +1,26 @@
+device: 0
+logdir: eval_results/SE3
+data_type: SE3
+eta_R: 0.5 # 0.5(low) or 5(high)
+eta_p: 0.5 # 0.5(low) or 5(high)
+time_step: 150 # sample traj generation legth
+eps: 0.0001
+data_num:
+model:
+  type: bc-deepovec
+  root: results/SE3
+  identifier: SE3_bc-deepovec
+  config_file: SE3_bc-deepovec.yml
+  ckpt_file: model_best.pkl
+  params: True
+sampling:
+  sample: False
+  type: distance
+  batch: 100
+  w_std: 0.3
+  p_std: 0.1
+  file_root: datasets/
+  file_name: SE3_samples.mat
+smooth:
+  batch: 10
+  time_step: 150

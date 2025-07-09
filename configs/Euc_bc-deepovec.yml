@@ -1,0 +1,62 @@
+entity: hajunsu
+wandb_project_name: BCSDM
+logdir: 'results/Euc/'
+logger: 
+  type: base
+  endwith: ['@']
+model:
+  arch: deepovec_euc
+  total_out_dim: 2
+  gamma : 1
+  branch:
+    arch: fc_vec
+    in_dim : 402
+    out_dim: 32
+    l_hidden: [1024, 1024, 1024, 1024]
+    activation: ['relu', 'relu', 'relu', 'relu']
+    out_activation: 'linear'
+  trunk:
+    arch: fc_vec
+    in_dim : 2
+    out_dim: 32
+    l_hidden: [512, 512, 512, 512]
+    activation: ['relu', 'relu', 'relu', 'relu']
+    out_activation: 'linear'
+data:
+  training:
+    dataset: deepovec
+    root: datasets/Euc_data.pt
+    batch_size: 512
+    split: training
+    shuffle: True
+    num_workers: 0
+  validation:
+    dataset: deepovec
+    root: datasets/Euc_data.pt
+    batch_size: 512
+    split: validation
+    shuffle: True
+    num_workers: 0
+  visualization:
+    dataset: deepovec
+    root: datasets/Euc_data.pt
+    batch_size: 1
+    split: visualization
+    shuffle: True
+    num_workers: 0
+trainer: deepovec
+training:
+  type: deepovec
+  n_epoch: 1000
+  optimizer:
+    name: 'adam'
+    lr: 0.0001
+  print_interval: 10
+  val_interval: 10
+  visualize_interval: 100000000000
+  visualization:
+    type: [image]
+    fig_size: [7, 7]
+    axes_lim: [[-10,10], [-10,10], [-10,10]]
+    view_init: [30, 30]
+    alpha: 0.2

@@ -1,0 +1,7 @@
+tensorboardX
+wandb
+matplotlib
+scipy
+tqdm
+pybullet
+omegaconf>=2.0.0

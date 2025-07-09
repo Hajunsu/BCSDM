@@ -1,0 +1,36 @@
+device: 0
+logdir: eval_results/S2
+data_type: S2
+eta: 2
+eps: 0.005
+data_num:
+traj_length: 200
+traj_dt: 0.03
+grid_batch: 1000
+model:
+  type: bc-deepovec
+  root: results/S2
+  identifier: S2_bc-deepovec
+  config_file: S2_bc-deepovec.yml
+  ckpt_file: model_best.pkl
+  demo_length : 100
+  params: True
+sampling:
+  sample: False
+  type: distance
+  batch: 100
+  std: 0.2
+  file_root: datasets/
+  file_name: S2_sample.mat
+vis:
+  vis_demo: True
+  vis_data_num:
+smooth:
+  batch: 30
+  time_step: 100
+  dt: 0.03
+mimicking:
+  batch: 100000
+  std: 0.2
+  sample: distance
+  error: real
