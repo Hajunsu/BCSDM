@@ -8,9 +8,7 @@ The project has been developed in a standard Anaconda environment with CUDA 12.6
 conda create -n bcsdm python=3.12
 conda activate bcsdm
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
-pip3 install pybullet
-pip install tensorboardX wandb matplotlib scipy tqdm
-pip install --upgrade omegaconf
+pip3 install -r requirements.txt
 ```
 
 ## Download Additional Resources
